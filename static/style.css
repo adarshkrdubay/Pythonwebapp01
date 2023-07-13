@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+img {
+    max-width: 100%;
+}
+
+body {
+
+    background-color: #0C1B33;
+    color: white;
+    font-family: 'Dancing Script';
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    background-color: rgb(73, 10, 16);
+
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white
+}
+
+nav ul li a:hover {
+    color: rgb(177, 48, 16);
+    font-size: 1.56rem;
+
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0 23px;
+}
+
+.left {
+    font-size: 2rem;
+}
+
+.right {
+    font-size: 1.5rem;
+}
+.firstsectionlcent{
+  margin-top: 65px;
+  width: 80%;
+  font-size: 3rem;
+  
+}
+.firstsection {
+    display: flex;
+    justify-content: space-around;
+    margin: 0px 23px;
+}
+
+.firstsection>div {
+    margin-top: 65px;
+    width: 80%;
+}
+.firstsectionlcent{
+  font-size: 3rem;
+  
+}
+.firstsectionleft {
+    font-size: 3rem;
+
+}
+
+.firstsectionright{
+   font-size: 3rem;
+
+}
+.firstsectionright img {
+    width: 100%;
+}
+
+.myname {
+    color: rgb(71, 0, 204);
+}
+
+.Selected {
+    color: rgb(173, 133, 21);
+
+}
+
+.projecth1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 3rem;
+
+}
+
+.projectbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 20px;
+
+}
+
+.projectbox a {
+    text-decoration: none;
+    color: white
+}
+
+.box {
+    padding-top: 10px;
+    background-color: rgb(109, 5, 19);
+    height: 300px;
+    width: 300px;
+}
+
+.boxdata {
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.boximag {
+    height: 200px;
+    width: 200px;
+    background-size: cover;
+
+}
+
+.Achivementh1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 3rem;
+    margin-top: 2rem;
+}
+
+.CYBER1 {
+    margin-top: 2rem;
+    font-size: 2.5rem;
+    margin-left: 2rem;
+}
+
+.year {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+
+main_login {
+    display: flex;
+    align-items: center;
+
+}
+
+.loginbox {
+    height: 100px;
+    width: 500px;
+
+}
+form {
+    border: 3px solid #f1f1f1;
+}
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+button:hover {
+    opacity: 0.8;
+}
+
+.forgpass {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+    align-items: center;
+}
+
+.container {
+    padding: 16px;
+    background-color: transparent;
+}
+span.psw {
+    float: right;
+    padding-top: 16px;
+    color: #03B5AA;
+}
+.logbox{
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.msg{
+  color:red;
+  font-size:2rem;
+}
