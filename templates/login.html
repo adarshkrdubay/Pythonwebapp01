@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+</head>
+<header>
+    <nav>
+        <div class="left">Adarsh's Portfolio</div>
+        <div class="right">
+            <ul>
+                <li><a href="{{ url_for('home')}}"> Home</a></li>
+                  <li><a href="{{ url_for('login')}}" class="Selected">LogIn</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<main>
+   
+
+    <body onload="document.getElementById('id01').style.display='block'">
+     
+
+        <div class="logbox" id="id01" class="loginbox modal">
+
+            
+           <form action="{{ url_for('login')}}" method="post" autocomplete="off">
+             
+
+                <div class="container">
+                    
+                    <label for="Username"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="Username" required>
+
+                    <label for="Password"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="Password" required>
+                  <div class="msg">{{ msg }}</div>
+
+                    <button type="submit">Login</button>
+                </div>
+
+                <div class="container">
+                    <button type="button" class="forgpass psw"><a href="index.html" style="text-decoration: none;">
+                        Forgot password?</a></button>              
+                </div>
+            </form>
+        </div>
+
+        <script>
+            var modal = document.getElementById('id01');
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+      <script>
+    alert("This is a development server. Login with test:test") 
+</script>
+
+    </body>
+
+</html>
