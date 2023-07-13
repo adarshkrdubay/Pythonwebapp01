@@ -21,9 +21,13 @@ Check it: https://mywebtest.adarshkrdubay.repl.co
 1. Clone the repository or download the code:
 
 ```bash
-git clone https://github.com/yourusername/your-repo.git
+git clone https://github.com/adarshkrdubay/Pythonwebapp01.git
 ```
-2. Install the required dependencies:
+2. Move to Pythonwebapp01
+```bash
+cd Pythonwebapp01
+```
+3. Install the required dependencies:
 ```bash
 pip3 install -r requirements.txt
 ```
