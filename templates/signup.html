@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+</head>
+</head>
+</head>
+<header>
+    <nav>
+        <div class="left">Adarsh's Portfolio</div>
+        <div class="right">
+            <ul>
+                <li><a href="{{ url_for('home')}}"> Home</a></li>
+                  <li><a href="{{ url_for('login')}}" >LogIn</a></li>
+                  <li><a href="{{ url_for('signup')}}" class="Selected">signup</a></li>
+              
+            </ul>
+        </div>
+    </nav>
+</header>
+<main>
+   
+
+    <body onload="document.getElementById('id01').style.display='block'">
+     
+
+        <div class="logbox" id="id01" class="loginbox modal">
+
+            
+           <form action="{{ url_for('signup')}}" method="post" autocomplete="off">
+             
+
+                <div class="container">
+                    
+                    <label for="Username"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="Username" required>
+                    <label for="Name"><b>Name</b></label>
+                    <input type="text" placeholder="Enter Name" name="Name" required>
+                    <label for="Email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="Email" required>
+
+                    <label for="Password"><b>Password</b></label>
+                    <input type="password" placeholder="Password" name="Password" required>
+                    <label for="Reenterpassword"><b>Reenter password</b></label>
+                    <input type="password" placeholder="Reenter password" name="Reenterpassword" required>
+                    <label for="key"><b>Access key</b></label>
+                    <input type="text" placeholder="Access key" name="key" required>
+                  <div class="msg">{{ msg }}</div>
+
+                    <button type="submit">Sign Up</button>
+                </div>
+                </div>
+            </form>
+        </div>
+
+        <script>
+            var modal = document.getElementById('id01');
+
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            alert("This is a development server. We don't have SMPT server right now, So we just use access key for this Application .Please contact @adarshkrdubay for access key")
+        </script>
+
+    </body>
+
+</html>
