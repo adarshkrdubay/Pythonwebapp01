@@ -84,7 +84,6 @@ def signup():
           cursor = mysql.cursor(pymysql.cursors.DictCursor)
           cursor.execute('INSERT INTO user VALUES (%s, %s, %s, %s)', (Name, Username, Email, Password))
           mysql.commit()
-          print(Name, Username, Email, Password)
           msg = 'Account registered'
           return render_template('login.html', msg=msg)
           
@@ -92,6 +91,38 @@ def signup():
         msg = 'Please fill out the form !'
         
   return render_template('signup.html', msg=msg)
+@app.route('/passreset' , methods=['GET', 'POST'])
+def passreset():
+    msg = ''
+    if request.method == 'POST' and 'Username' in request.form and 'Password' in request.form and 'Reenterpassword' in request.form and 'key' in request.form:
+      Username = request.form['Username']
+      Password = request.form['Password']
+      Reepass = request.form['Reenterpassword']
+      key = request.form['key']
+      cursor = mysql.cursor(pymysql.cursors.DictCursor)
+      cursor.execute('SELECT * FROM user WHERE BINARY Username = %s', (Username,))
+      accountu = cursor.fetchone()
+      if Reepass != Password:
+           msg = 'Password dose not match'
+      elif key !=  os.environ['a_key']:
+              msg = 'Access key is wrong'
+      elif not accountu:
+          msg = 'User not found'
+      else:
+          if Username == "test" or Username == "try":
+              msg ="You Can't change password for dummy user."
+          else:
+              cursor = mysql.cursor(pymysql.cursors.DictCursor)
+              cursor.execute("UPDATE user SET Password=%s WHERE Username=%s", (Password, Username))
+              mysql.commit()
+              msg= "Password Changed"
+              return render_template('login.html', msg=msg)
+
+    return render_template('passreset.html', msg=msg)
+
+
+    
+    
 @app.route('/dashboard')
 def dashboard():
     if 'Username' in session:
