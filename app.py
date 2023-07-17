@@ -2,7 +2,7 @@ from flask import *
 import pymysql
 import os
 import re
-
+# session['Username'] = "0"
 app = Flask(__name__)
 app.secret_key = os.environ['SECRET_KEY']
 app.config['MYSQL_HOST'] = os.environ['MYSQL_HOST']
@@ -20,6 +20,7 @@ mysql = pymysql.connect(
 @app.route('/')
 def index():
     return render_template('index.html')
+    
 @app.route('/home')
 def home():
     return render_template('index.html')
@@ -28,6 +29,9 @@ def favicon():
     return app.send_static_file('static/logo.png')
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+  if 'Username' in session and "0"!= session['Username'] :
+     return redirect('/dashboard')
+  else:
     msg = ''
     if request.method == 'POST' and 'Username' in request.form and 'Password' in request.form:
         Username = request.form['Username']
@@ -50,7 +54,7 @@ def login():
                 msg = "Incorrect Username or Password"
         else:
             msg = "Incorrect Username or Password"
-
+      
     return render_template('login.html', msg=msg)
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -102,7 +106,7 @@ def passreset():
       cursor = mysql.cursor(pymysql.cursors.DictCursor)
       cursor.execute('SELECT * FROM user WHERE BINARY Username = %s', (Username,))
       accountu = cursor.fetchone()
-      if Reepass != Password:
+      if passreset != Password:
            msg = 'Password dose not match'
       elif key !=  os.environ['a_key']:
               msg = 'Access key is wrong'
@@ -120,14 +124,20 @@ def passreset():
 
     return render_template('passreset.html', msg=msg)
 
-
+@app.route('/logout')
+def logout():
+        session['Username'] = "0"
+        return redirect('/')
     
     
-@app.route('/dashboard')
+@app.route('/dashboard' ,  methods=['GET', 'POST'])
 def dashboard():
-    if 'Username' in session:
+    if 'Username' in session and "0"!= session['Username'] :
         Username = session['Username']
-        return f"Welcome, {Username}!"
+        cursor = mysql.cursor(pymysql.cursors.DictCursor)
+        cursor.execute('SELECT * FROM user WHERE BINARY Username = %s', (Username,))
+        accountu = cursor.fetchone()
+        return render_template('user.html' ,Username= Username)
     else:
         return redirect('/login')
 
